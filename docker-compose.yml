@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mysql:
+    build: /mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Admin.1234
+      MYSQL_DATABASE: sync360_db
+      MYSQL_USER: sync_user
+      MYSQL_PASSWORD: Sync.1234
+    ports:
+      - "3306:3306"
+  
+  app:
+    build: /app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql

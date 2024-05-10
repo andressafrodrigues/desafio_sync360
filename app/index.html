@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <title>Desafio - Sync360</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">DESAFIO</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <section id="userInformation" class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="user-info">
+              <img src="https://i.pinimg.com/564x/67/86/58/6786581ddcda7c0f60a8eb71be8dd690.jpg" alt="Foto do Usuário" class="img-fluid" id="userImage">
+              <h2>Nome do Usuário</h2>
+              <strong>Idade:</strong> 25 anos  <br>
+              <strong>Endereço:</strong> Rua Exemplo, 123 - Cidade, Estado
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="user-info">
+              <h4>Biografia:</h4>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Vel architecto molestias doloribus reprehenderit, quae corporis voluptate illum ducimus. 
+                Facilis fuga harum, quo quibusdam labore ullam veniam laudantium aliquam corporis eum? 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, a pariatur quibusdam quasi aperiam veritatis ducimus aut atque,
+                amet quisquam quidem magnam. Dicta atque natus dolore nihil expedita, ipsa maiores!
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Vel architecto molestias doloribus reprehenderit, quae corporis voluptate illum ducimus. 
+                Facilis fuga harum, quo quibusdam labore ullam veniam laudantium aliquam corporis eum? 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, a pariatur quibusdam quasi aperiam veritatis ducimus aut atque,
+                amet quisquam quidem magnam. Dicta atque natus dolore nihil expedita, ipsa maiores!
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Vel architecto molestias doloribus reprehenderit, quae corporis voluptate illum ducimus. 
+                Facilis fuga harum, quo quibusdam labore ullam veniam laudantium aliquam corporis eum? 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, a pariatur quibusdam quasi aperiam veritatis ducimus aut atque,
+                amet quisquam quidem magnam. Dicta atque natus dolore nihil expedita, ipsa maiores!
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Vel architecto molestias doloribus reprehenderit, quae corporis voluptate illum ducimus. 
+                Facilis fuga harum, quo quibusdam labore ullam veniam laudantium aliquam corporis eum? 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, a pariatur quibusdam quasi aperiam veritatis ducimus aut atque,
+                amet quisquam quidem magnam. Dicta atque natus dolore nihil expedita, ipsa maiores!
+              </p>
+            </div>
+            <div class="text-end">
+                    <button id="openModalBtn"  class="btn btn-primary">Editar</button>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="modal" class="modal">
+    <div id="userUpdateDiv" class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Atualizar</h2>
+        <form id="userUpdateForm" method="post" action="/submit">
+            <div class="mb-3">
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="age">Idade:</label><br>
+                <input type="text" id="age" name="age">
+            </div>
+            <div class="mb-3">
+                <label for="address">Endereço:</label><br>
+                <input type="text" id="address" name="address">
+            </div>
+            <div class="mb-3">
+                <label for="biography">Biografia:</label><br>
+                <textarea class="form-control" id="biography" rows="3"></textarea>
+            </div>
+            <input type="submit" value="Salvar">
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="js/modal.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('userUpdateForm');
+      
+      form.addEventListener('submit', function(event) {
+
+          const formData = new FormData(form); // Obtém os dados do formulário
+
+          fetch('/submit', {
+              method: 'POST',
+              body: formData
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Erro ao enviar os dados');
+              }
+              return response.text();
+          })
+          .then(data => {
+              alert(data); // Exibe uma mensagem de sucesso
+          })
+          .catch(error => {
+              console.error('Erro:', error);
+              alert('Erro ao enviar os dados');
+          });
+      });
+  });
+</script>
+</body>
+</html>

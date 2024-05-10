@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: #ebebeb;
+}
+.user-info {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+section#userInformation, section#userRegister  {
+    margin-top: 2rem;
+    background-color: #f2f2f2;
+    padding:  14PX;
+}
+
+img#userImage {
+    max-width: 100%; 
+    height: auto;
+    width: 300px;
+    object-fit: cover; 
+}
+
+.user-info h2{
+    margin-top: 3rem;
+}
+
+p{
+    text-indent: 2.4rem;
+    text-align: justify;
+}
+
+/* formulário */
+
+#userUpdateDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
+
+input#age {
+    padding: 10px;
+    width: 400px;
+}
+
+
+#userForm input[type="text"], 
+#userForm input[type="text"], 
+#userForm input[type="number"], 
+#userUpdateForm input[type="text"], 
+#userRegistrationForm input[type="text"], 
+#userUpdateForm input[type="number"], 
+#userRegistrationForm input[type="number"] {
+    padding: 10px;
+    width: 400px !important;
+    
+}
+
+textarea#biography {
+    max-width: 400px;
+    width: 400px;
+    border: 1px solid #000;
+    min-height: 300px;
+}
+
+button[type="submit"], #registerButton, #updateButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover, #registerButton:hover, #updateButton:hover  {
+    background-color: #042141;
+}
+
+/* Lista */
+
+section#usersList {
+    margin: 2rem;
+}
+
+#userRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Opcional: para centralizar verticalmente */
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-top: 10px;
+}

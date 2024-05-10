@@ -1,0 +1,48 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">DESAFIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/users">Lista de Usuários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/register">Cadastrar</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section id="userRegister" class="container">
+<form id="userRegistrationForm" method="post" action="/submit">
+    <div class="mb-3">
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="age">Idade:</label><br>
+        <input type="text" id="age" name="age" required>
+    </div>
+    <div class="mb-3">
+        <label for="address">Endereço:</label><br>
+        <input type="text" id="address" name="address" required>
+    </div>
+    <div class="mb-3">
+        <label for="img">Imagem de Perfil:</label><br>
+        <input type="number" id="img" name="img" value="{{userData.img}}">
+    </div>
+    <div class="mb-3">
+        <label for="biography">Biografia:</label><br>
+        <textarea class="form-control" id="biography" name="biography"></textarea>
+    </div>
+    <input type="submit" id="registerButton" value="Salvar">
+</form>
+</section>
